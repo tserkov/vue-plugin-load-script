@@ -1,0 +1,9 @@
+{
+  "name": "vue-plugin-load-script",
+  "version": "1.0.0",
+  "description": "A Vue plugin for injecting remote scripts",
+  "main": "index.js",
+  "repository": "https://github.com/tserkov/vue-plugin-load-script",
+  "author": "tserkov <james.churchard@gmail.com>",
+  "license": "MIT"
+}
