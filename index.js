@@ -1,8 +1,8 @@
 const LoadScript = {
-  install(Vue) {
-    Vue.loadScript = src => ( // eslint-disable-line no-param-reassign
-      new Promise((resolve, reject) => {
-        if (document.querySelector(`script[src='${src}']`)) {
+  install: function (Vue) {
+    Vue.loadScript = function (src) { // eslint-disable-line no-param-reassign
+      return new Promise(function (resolve, reject) {
+        if (document.querySelector('script[src="' + src + '"]')) {
           resolve();
 
           return;
@@ -20,7 +20,7 @@ const LoadScript = {
 
         document.head.appendChild(el);
       })
-    );
+    };
   },
 };
 
