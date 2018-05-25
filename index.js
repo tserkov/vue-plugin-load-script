@@ -1,6 +1,6 @@
 const LoadScript = {
   install: function (Vue) {
-    Vue.loadScript = function (src) { // eslint-disable-line no-param-reassign
+    Vue.loadScript = Vue.prototype.$loadScript = function (src) { // eslint-disable-line no-param-reassign
       return new Promise(function (resolve, reject) {
         if (document.querySelector('script[src="' + src + '"]')) {
           resolve();
