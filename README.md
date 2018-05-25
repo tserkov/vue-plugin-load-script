@@ -23,8 +23,17 @@ yarn add --dev vue-plugin-load-script
 ```
 
 ```javascript
-  // In any component or function
+  // As a global method
   Vue.loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
+    .then(() => {
+      // Script is loaded, do something
+    })
+    .catch(() => {
+      // Failed to fetch script
+    });
+
+  // As an instance method inside a component
+  this.$loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
       // Script is loaded, do something
     })
