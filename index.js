@@ -19,7 +19,23 @@ const LoadScript = {
         el.addEventListener('abort', reject);
 
         document.head.appendChild(el);
-      })
+      });
+    };
+
+    Vue.unloadScript = Vue.prototype.$unloadScript = function (src) { // eslint-disable-line no-param-reassign
+      return new Promise(function (resolve, reject) {
+        const el = document.querySelector('script[src="' + src + '"]');
+
+        if (!el) {
+          reject();
+
+          return;
+        }
+
+        document.head.removeChild(el);
+
+        resolve();
+      });
     };
   },
 };

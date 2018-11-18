@@ -41,3 +41,27 @@ yarn add --dev vue-plugin-load-script
       // Failed to fetch script
     });
 ```
+
+:zap: __New in 1.2!__
+If you'd like to remove (unload) the script at any point, then call the companion method `$unloadScript` __with the same URL__.
+
+```javascript
+  // As a global method
+  Vue.unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
+    .then(() => {
+      // Script was unloaded successfully
+    })
+    .catch(() => {
+      // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
+    });
+
+  // As an instance method inside a component
+  this.$unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
+    .then(() => {
+      // Script was unloaded successfully
+    })
+    .catch(() => {
+      // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
+    });
+```
+In most situations, you can just call `Vue.unloadScript`/`this.$unloadScript` and ignore the returned promise.
