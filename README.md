@@ -5,12 +5,12 @@ A Vue plugin for injecting remote scripts.
 
 ``` bash
 # npm
-npm install --save-dev vue-plugin-load-script
+npm install --save vue-plugin-load-script
 ```
 
 ``` bash
 # yarn
-yarn add --dev vue-plugin-load-script
+yarn add vue-plugin-load-script
 ```
 
 ## Use
