@@ -14,9 +14,16 @@ const LoadScript = {
         el.async = true;
         el.src = src;
 
+        const rejector = () => {
+          // After a failed script load, remove the script
+          // element to permit future loads. (#13)
+          document.head.removeChild(el);
+          reject();
+        };
+
         el.addEventListener('load', resolve);
-        el.addEventListener('error', reject);
-        el.addEventListener('abort', reject);
+        el.addEventListener('error', rejector);
+        el.addEventListener('abort', rejector);
 
         document.head.appendChild(el);
       });
