@@ -9,12 +9,12 @@ For Vue 2, see [the master branch](/tserkov/vue-plugin-load-script/tree/master).
 
 ``` bash
 # npm
-npm install --save vue-plugin-load-script@v3
+npm install --save vue-plugin-load-script@">=2.0.0"
 ```
 
 ``` bash
 # yarn
-yarn add vue-plugin-load-script@v3
+yarn add vue-plugin-load-script@">=2.0.0"
 ```
 
 ## Use
