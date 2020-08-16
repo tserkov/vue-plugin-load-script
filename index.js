@@ -1,6 +1,6 @@
 const LoadScript = {
   install: function (app) {
-    app.loadScript = app.config.globalProperties.$loadScript = function (src) {
+    app.config.globalProperties.$loadScript = function (src) {
       // eslint-disable-line no-param-reassign
       return new Promise(function (resolve, reject) {
         let shouldAppend = false;
@@ -27,9 +27,7 @@ const LoadScript = {
       });
     };
 
-    app.unloadScript = app.config.globalProperties.$unloadScript = function (
-      src
-    ) {
+    app.config.globalProperties.$unloadScript = function (src) {
       // eslint-disable-line no-param-reassign
       return new Promise(function (resolve, reject) {
         const el = document.querySelector('script[src="' + src + '"]');
