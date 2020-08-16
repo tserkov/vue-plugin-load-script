@@ -3,16 +3,18 @@ A Vue plugin for injecting remote scripts.
 
 Compatible with Vue 3.
 
+For Vue 2, see [the master branch](/tserkov/vue-plugin-load-script/tree/master).
+
 ## Install
 
 ``` bash
 # npm
-npm install --save vue-plugin-load-script
+npm install --save vue-plugin-load-script@v3
 ```
 
 ``` bash
 # yarn
-yarn add vue-plugin-load-script
+yarn add vue-plugin-load-script@v3
 ```
 
 ## Use
@@ -39,7 +41,6 @@ yarn add vue-plugin-load-script
     });
 ```
 
-:zap: __New in 1.2!__
 If you'd like to remove (unload) the script at any point, then call the companion method `$unloadScript` __with the same URL__.
 
 ```javascript
