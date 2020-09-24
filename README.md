@@ -31,6 +31,17 @@ yarn add vue-plugin-load-script@">=2.0.0"
 ```
 
 ```javascript
+  // There are 2 ways of using the function:
+  // By importing the function
+  import { loadScript } from "vue-plugin-load-script";
+  loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
+    .then(() => {
+      // Script is loaded, do something
+    })
+    .catch(() => {
+      // Failed to fetch script
+    });
+
   // As an instance method inside a component
   this.$loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
@@ -41,9 +52,20 @@ yarn add vue-plugin-load-script@">=2.0.0"
     });
 ```
 
-If you'd like to remove (unload) the script at any point, then call the companion method `$unloadScript` __with the same URL__.
+If you'd like to remove (unload) the script at any point, then call the companion method `unloadScript` / `this.$unloadScript` __with the same URL__.
 
 ```javascript
+  // There are 2 ways of using the function:
+  // By importing the function
+  import { unloadScript } from "vue-plugin-load-script";
+  unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
+    .then(() => {
+      // Script was unloaded successfully
+    })
+    .catch(() => {
+      // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
+    });
+
   // As an instance method inside a component
   this.$unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
@@ -53,4 +75,4 @@ If you'd like to remove (unload) the script at any point, then call the companio
       // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
     });
 ```
-In most situations, you can just call `this.$unloadScript` and ignore the returned promise.
+In most situations, you can just call `unloadScript` / `this.$unloadScript` and ignore the returned promise.
