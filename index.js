@@ -1,6 +1,4 @@
-const LoadScript = {
-  install: function (app) {
-    app.config.globalProperties.$loadScript = function (src) {
+function loadScript(src) {
       // eslint-disable-line no-param-reassign
       return new Promise(function (resolve, reject) {
         let shouldAppend = false;
@@ -27,22 +25,29 @@ const LoadScript = {
       });
     };
 
-    app.config.globalProperties.$unloadScript = function (src) {
-      // eslint-disable-line no-param-reassign
-      return new Promise(function (resolve, reject) {
-        const el = document.querySelector('script[src="' + src + '"]');
+function unloadScript(src) {
+  // eslint-disable-line no-param-reassign
+  return new Promise(function (resolve, reject) {
+    const el = document.querySelector('script[src="' + src + '"]');
 
-        if (!el) {
-          reject();
-          return;
-        }
+    if (!el) {
+      reject();
+      return;
+    }
 
-        document.head.removeChild(el);
+    document.head.removeChild(el);
 
-        resolve();
-      });
-    };
+    resolve();
+  });
+}
+
+export { unloadScript, loadScript };
+
+const thisLoadScript = {
+  install: function (app) {
+    app.config.globalProperties.$loadScript = loadScript;
+    app.config.globalProperties.$unloadScript = unloadScript;
   },
 };
 
-export default LoadScript;
+export default thisLoadScript;
