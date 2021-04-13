@@ -42,16 +42,6 @@ yarn add vue-plugin-load-script
     .catch(() => {
       // Failed to fetch script
     });
-
-  // With Array
-  this.$loadScript([
-    "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY",
-    "another_script_file.js"
-  ]).then(() => {
-    // Scripts are loaded, do something
-  }).catch(() => {
-    // Failed to fetch scripts
-  })
 ```
 
 :zap: __New in 1.2!__
@@ -75,15 +65,5 @@ If you'd like to remove (unload) the script at any point, then call the companio
     .catch(() => {
       // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
     });
-
-  // With Array
-  this.$unloadScript([
-    "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY",
-    "another_script_file.js"
-  ]).then(() => {
-    // Scripts was unloaded successfully
-  }).catch(() => {
-    // Scripts couldn't be found to unload; make sure it was loaded and that you passed the same URL
-  })
 ```
 In most situations, you can just call `Vue.unloadScript`/`this.$unloadScript` and ignore the returned promise.
