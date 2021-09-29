@@ -1,3 +1,4 @@
+/* eslint-env browser */
 const LoadScript = {
   install: function (Vue) {
     Vue.loadScript = Vue.prototype.$loadScript = function (src) { // eslint-disable-line no-param-reassign
