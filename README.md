@@ -17,12 +17,37 @@ yarn add vue-plugin-load-script
 
 ## Use
 
+### With Vue
 ```javascript
   // In main.js
   import LoadScript from 'vue-plugin-load-script';
 
   Vue.use(LoadScript);
 ```
+
+### With Nuxt
+```javascript
+// @/plugins/load-script.js
+import Vue from 'vue';
+import LoadScript from 'vue-plugin-load-script';
+Vue.use(LoadScript);
+```
+
+```javascript
+// @/nuxt.config.js
+//...
+  plugins: [
+    { src: '@/plugins/load-script.js' },
+  ],
+  //...
+  build: {
+    transpile: ['vue-plugin-load-script'],
+  },
+//...
+```
+The `build.transpile` option is required since this plugin is exported as an ES6 module.
+
+### Usage
 
 ```javascript
   // As a global method
@@ -43,6 +68,9 @@ yarn add vue-plugin-load-script
       // Failed to fetch script
     });
 ```
+Once loaded, the script can be accessed by their usual name in the global scope, as if the script were included in the page's `<head>`.
+
+If you are using a linter to check your code, it may warn on an undefined variable. You will need to instruct your linter to ignore this variable or function. [See here for ESLint instructions](https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals). If you are unable to resolve this in your linter, try prefixing the loaded library's variable/function name with `window.`.
 
 :zap: __New in 1.2!__
 If you'd like to remove (unload) the script at any point, then call the companion method `$unloadScript` __with the same URL__.
