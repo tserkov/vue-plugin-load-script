@@ -6,5 +6,8 @@
   "repository": "https://github.com/tserkov/vue-plugin-load-script",
   "author": "tserkov <james.churchard@gmail.com>",
   "license": "MIT",
-  "typings": "./index.d.ts"
+  "typings": "./index.d.ts",
+  "devDependencies": {
+    "vue": "^2.6.14"
+  }
 }
