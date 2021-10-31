@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 declare module "vue-plugin-load-script";
 
 declare module "vue/types/vue" {
