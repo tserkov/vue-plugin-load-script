@@ -8,6 +8,6 @@
   "license": "MIT",
   "typings": "./index.d.ts",
   "devDependencies": {
-    "vue": "^2.6.14"
+    "vue": "<3.0.0"
   }
 }
