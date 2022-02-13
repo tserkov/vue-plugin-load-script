@@ -1,18 +1,20 @@
 # vue-plugin-load-script [![license](https://img.shields.io/github/license/tserkov/vue-plugin-load-script.svg)]()
-A Vue 2 plugin for injecting remote scripts.
+A  plugin for injecting remote scripts.
 
-See the `vue3` branch for Vue 3 support.
+Compatible with Vue 2.
+
+For Vue 3, see [the vue3 branch](/tserkov/vue-plugin-load-script/tree/vue3).
 
 ## Install
 
 ``` bash
 # npm
-npm install --save vue-plugin-load-script
+npm install --save vue-plugin-load-script@^1.x.x
 ```
 
 ``` bash
 # yarn
-yarn add vue-plugin-load-script
+yarn add vue-plugin-load-script@^1.x.x
 ```
 
 ## Use
