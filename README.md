@@ -9,18 +9,17 @@ For Vue 2, see [the master branch](/tserkov/vue-plugin-load-script/tree/master).
 
 ``` bash
 # npm
-npm install --save vue-plugin-load-script@">=2.0.0"
+npm install --save vue-plugin-load-script@^2.x.x
 ```
 
 ``` bash
 # yarn
-yarn add vue-plugin-load-script@">=2.0.0"
+yarn add vue-plugin-load-script@^2.x.x
 ```
 
-## Use
-
+If you're using the Options API:
 ```javascript
-  // In main.js
+  // main.js
   import { createApp } from "vue";
   import LoadScript from "vue-plugin-load-script";
 
@@ -30,9 +29,10 @@ yarn add vue-plugin-load-script@">=2.0.0"
   app.mount("#app");
 ```
 
+## Use
+
 ```javascript
-  // There are 2 ways of using the function:
-  // By importing the function
+  // Composition API
   import { loadScript } from "vue-plugin-load-script";
   loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
@@ -42,7 +42,7 @@ yarn add vue-plugin-load-script@">=2.0.0"
       // Failed to fetch script
     });
 
-  // As an instance method inside a component
+  // Options API
   this.$loadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
       // Script is loaded, do something
@@ -55,8 +55,7 @@ yarn add vue-plugin-load-script@">=2.0.0"
 If you'd like to remove (unload) the script at any point, then call the companion method `unloadScript` / `this.$unloadScript` __with the same URL__.
 
 ```javascript
-  // There are 2 ways of using the function:
-  // By importing the function
+  // Composition API
   import { unloadScript } from "vue-plugin-load-script";
   unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
@@ -66,7 +65,7 @@ If you'd like to remove (unload) the script at any point, then call the companio
       // Script couldn't be found to unload; make sure it was loaded and that you passed the same URL
     });
 
-  // As an instance method inside a component
+  // Options API
   this.$unloadScript("https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY")
     .then(() => {
       // Script was unloaded successfully
